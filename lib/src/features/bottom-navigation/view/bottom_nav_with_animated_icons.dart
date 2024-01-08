@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_bottom_nav/core/components/animated_bar_indicator.dart';
 import 'package:rive_bottom_nav/core/controllers/bottom_nav_controller.dart';
+import 'package:rive_bottom_nav/src/features/bottom-navigation/bloc/bottom_navigation_bloc.dart';
 
 const Color bottomNavBgColor = Color(0xFF17203A);
 
 class BottomNavWithAnimatedIcons extends StatefulWidget {
-  const BottomNavWithAnimatedIcons({super.key});
+  const BottomNavWithAnimatedIcons({
+    super.key,
+    required this.state,
+    required this.selectedNavIndex,
+  });
+
+  final BottomNavigationBloc state;
+  final int selectedNavIndex;
 
   @override
   State<BottomNavWithAnimatedIcons> createState() =>
@@ -21,9 +29,6 @@ class _BottomNavWithAnimatedIconsState
   List<SMIBool> riveIconInputs = [];
 
   List<StateMachineController> controllers = [];
-
-  // currently selected nav item
-  int _selectedNavItem = 0;
 
   // animate the rive icon
   void animateRiveIcon(int index) {
@@ -94,17 +99,17 @@ class _BottomNavWithAnimatedIconsState
                   // Animate the rive icon
                   animateRiveIcon(index);
 
-                  setState(() {
-                    // Set the currently selected nav item
-                    _selectedNavItem = index;
-                  });
+                  // Add the index to the selectedNavIndex stream
+                  widget.state.add(
+                    BottomNavigationTappedEvent(selectedNavIndex: index),
+                  );
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // Icon Animated Bar Indicator
                     AnimatedBarIndicator(
-                      isActive: _selectedNavItem == index,
+                      isActive: widget.selectedNavIndex == index,
                     ),
 
                     // Icon
@@ -112,7 +117,8 @@ class _BottomNavWithAnimatedIconsState
                       height: 36,
                       width: 36,
                       child: Opacity(
-                        opacity: _selectedNavItem == index ? 1 : 0.5,
+                        opacity:
+                            widget.selectedNavIndex == index ? 1 : 0.5,
                         child: RiveAnimation.asset(
                           riveIcon.src,
                           artboard: riveIcon.artBoard,
