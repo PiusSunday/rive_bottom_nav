@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rive_bottom_nav/src/view/home.dart';
 
 void main() {
   runApp(const RiveBottomNavApp());
@@ -15,6 +16,7 @@ class RiveBottomNavApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
+      home: const HomeScreen(),
     );
   }
 }

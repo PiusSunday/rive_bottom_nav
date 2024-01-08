@@ -8,7 +8,7 @@ class BottomNavController {
     BottomNavItemModel(
       title: "Chat",
       rive: RiveModel(
-        src: "assets/rive-icons/icons.riv",
+        src: "assets/rive/animated-icons.riv",
         artBoard: "CHAT",
         stateMachineName: "CHAT_Interactivity",
       ),
@@ -18,9 +18,9 @@ class BottomNavController {
     BottomNavItemModel(
       title: "Search",
       rive: RiveModel(
-        src: "assets/rive-icons/icons.riv",
+        src: "assets/rive/animated-icons.riv",
         artBoard: "SEARCH",
-        stateMachineName: "Search_Interactivity",
+        stateMachineName: "SEARCH_Interactivity",
       ),
     ),
 
@@ -28,9 +28,9 @@ class BottomNavController {
     BottomNavItemModel(
       title: "Timer",
       rive: RiveModel(
-        src: "assets/rive-icons/icons.riv",
+        src: "assets/rive/animated-icons.riv",
         artBoard: "TIMER",
-        stateMachineName: "Timer_Interactivity",
+        stateMachineName: "TIMER_Interactivity",
       ),
     ),
 
@@ -38,7 +38,7 @@ class BottomNavController {
     BottomNavItemModel(
       title: "Notification",
       rive: RiveModel(
-        src: "assets/rive-icons/icons.riv",
+        src: "assets/rive/animated-icons.riv",
         artBoard: "BELL",
         stateMachineName: "BELL_Interactivity",
       ),
@@ -48,7 +48,7 @@ class BottomNavController {
     BottomNavItemModel(
       title: "Profile",
       rive: RiveModel(
-        src: "assets/rive-icons/icons.riv",
+        src: "assets/rive/animated-icons.riv",
         artBoard: "USER",
         stateMachineName: "USER_Interactivity",
       ),

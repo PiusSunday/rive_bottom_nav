@@ -20,4 +20,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/rive-icons/
+    - assets/rive/icons.riv
+    - assets/rive/animated-icons.riv
